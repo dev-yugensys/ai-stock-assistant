@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ChatService } from './services/chat.service';
 
 @Component({
@@ -11,34 +11,26 @@ export class AppComponent {
 
   messages: any[] = [];
   userInput: string = '';
+  isLoading = false;
 
   constructor(private chatService: ChatService) {}
 
   sendMessage() {
-    if (!this.userInput.trim()) return;
-
-    // push user message
-    this.messages.push({
-      sender: 'user',
-      text: this.userInput
-    });
-
-    const messageToSend = this.userInput;
+    if (!this.userInput.trim() || this.isLoading) return;
+    this.isLoading = true;
+    const userText = this.userInput;
     this.userInput = '';
+    this.messages.push({ sender: 'user', text: userText });
 
     // call backend
-    this.chatService.sendMessage(messageToSend).subscribe({
+    this.chatService.sendMessage(userText).subscribe({
       next: (response) => {
-        this.messages.push({
-          sender: 'ai',
-          text: response.response   // python returns { "reply": "..." }
-        });
+        this.messages.push({sender: 'ai', text: response.response});
+        this.isLoading = false;
       },
       error: (err) => {
-        this.messages.push({
-          sender: 'ai',
-          text: "⚠️ Backend error"
-        });
+        this.messages.push({sender: 'ai', text: "⚠️ Something went wrong!"});
+        this.isLoading = false;
       }
     });
   }
