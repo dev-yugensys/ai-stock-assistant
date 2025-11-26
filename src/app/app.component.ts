@@ -43,5 +43,8 @@ export class AppComponent {
     });
   }
 
-
+  quickAsk(text: string) {
+    this.userInput = text;
+    this.sendMessage();
+  }
 }

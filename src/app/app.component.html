@@ -15,6 +15,44 @@
       <div class="chat-box">
         <h4 class="title">AI Stock Research Assistant</h4>
 
+        <!-- 🔵 TOOL INFORMATION -->
+        <div class="tool-info">
+          <h5>🔧 About This Tool</h5>
+          <p>
+            This assistant provides real-time stock insights using market APIs,
+            technical indicators, company fundamentals, and AI-driven analysis.
+          </p>
+        </div>
+
+        <!-- 🟢 ASK ANYTHING BOX -->
+        <div class="ask-box">
+          <strong>Ask anything about stocks…</strong>
+          <p>Examples: price targets, trends, news, support/resistance, fundamentals.</p>
+        </div>
+
+        <!-- 🟣 FAQ QUICK ACTIONS -->
+        <div class="faq-list">
+          <div class="faq-item" (click)="quickAsk('Show me today’s top gainers')">
+            📈 Show me today’s top gainers
+          </div>
+
+          <div class="faq-item" (click)="quickAsk('Analyze Reliance stock')">
+            🏢 Analyze Reliance stock
+          </div>
+
+          <div class="faq-item" (click)="quickAsk('Is TCS a good buy now?')">
+            💡 Is TCS a good buy now?
+          </div>
+
+          <div class="faq-item" (click)="quickAsk('Give me top stocks for long-term')">
+            🕒 Top stocks for long-term
+          </div>
+
+          <div class="faq-item" (click)="quickAsk('Latest stock market news')">
+            📰 Latest stock market news
+          </div>
+        </div>
+
         <div class="messages-container">
 
           <div *ngFor="let msg of messages"
