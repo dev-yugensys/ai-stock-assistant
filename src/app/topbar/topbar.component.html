@@ -9,6 +9,9 @@
         {{ sensex.CHANGE }} ({{ sensex.PERCCHANGE }}%)
       </span>
     </span>
+    <span *ngIf="!sensex">
+      <strong>SENSEX:...</strong>
+    </span>
 
     <span *ngIf="nifty" style="margin-left: 20px;">
       <strong>NIFTY:</strong>
@@ -16,6 +19,9 @@
       <span [ngClass]="nifty.CHANGE > 0 ? 'up' : 'down'">
         {{ nifty.CHANGE }} ({{ nifty.PERCCHANGE }}%)
       </span>
+    </span>
+    <span *ngIf="!nifty">
+      <strong>NIFTY:...</strong>
     </span>
   </div>
 </div>
