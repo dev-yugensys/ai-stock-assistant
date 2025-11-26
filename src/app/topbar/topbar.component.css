@@ -1,0 +1,26 @@
+.top-bar {
+  height: 60px;
+  background: white;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.market-ticker {
+  font-size: 0.9rem;
+}
+
+
+
+.up {
+  color: #09c709;
+}
+
+.down {
+  color: #ff2e2e;
+}

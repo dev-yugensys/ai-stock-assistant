@@ -1,0 +1,21 @@
+<div class="top-bar d-flex justify-content-between align-items-center px-4">
+  <div class="logo">📈 AI Stock Assistant</div>
+
+  <div class="market-ticker d-flex gap-4">
+    <span *ngIf="sensex">
+      <strong>SENSEX:</strong>
+      {{ sensex.pricecurrent }}
+      <span [ngClass]="sensex.CHANGE > 0 ? 'up' : 'down'">
+        {{ sensex.CHANGE }} ({{ sensex.PERCCHANGE }}%)
+      </span>
+    </span>
+
+    <span *ngIf="nifty" style="margin-left: 20px;">
+      <strong>NIFTY:</strong>
+      {{ nifty.pricecurrent }}
+      <span [ngClass]="nifty.CHANGE > 0 ? 'up' : 'down'">
+        {{ nifty.CHANGE }} ({{ nifty.PERCCHANGE }}%)
+      </span>
+    </span>
+  </div>
+</div>

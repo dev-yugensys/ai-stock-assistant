@@ -1,0 +1,50 @@
+<div class="app-container d-flex flex-column">
+
+  <!-- Top Bar -->
+  <app-topbar></app-topbar>
+
+  <div class="main-layout d-flex flex-grow-1">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Chat Window -->
+    <div class="chat-area flex-grow-1">
+      <div class="chat-box">
+        <h4 class="title">AI Stock Research Assistant</h4>
+
+        <div class="messages-container">
+
+          <div *ngFor="let msg of messages"
+               class="message"
+               [ngClass]="{
+                 'user-msg': msg.sender === 'user',
+                 'ai-msg': msg.sender === 'ai'
+               }">
+            {{ msg.text }}
+          </div>
+
+        </div>
+
+        <div class="input-container">
+          <input type="text"
+                 [(ngModel)]="userInput"
+                 class="form-control chat-input"
+                 placeholder="Ask about any stock..."
+                 (keydown.enter)="sendMessage()">
+
+          <button class="btn btn-primary" (click)="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <app-rightpanel></app-rightpanel>
+    </div>
+
+  </div>
+
+</div>
