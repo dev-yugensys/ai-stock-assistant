@@ -31,7 +31,7 @@ export class AppComponent {
       next: (response) => {
         this.messages.push({
           sender: 'ai',
-          text: response.reply   // python returns { "reply": "..." }
+          text: response.response   // python returns { "reply": "..." }
         });
       },
       error: (err) => {
