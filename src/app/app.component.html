@@ -56,12 +56,12 @@
         <div class="messages-container">
 
           <div *ngFor="let msg of messages"
-               class="message"
-               [ngClass]="{
-                 'user-msg': msg.sender === 'user',
-                 'ai-msg': msg.sender === 'ai'
-               }">
-            {{ msg.text }}
+                class="message"
+                [ngClass]="{
+                  'user-msg': msg.sender === 'user',
+                  'ai-msg': msg.sender === 'ai'
+                }"
+                [innerHTML]="msg.text">
           </div>
           <div class="loader" *ngIf="isLoading">
             <div class="spinner"></div>

@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ChatService } from './services/chat.service';
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,8 @@ export class AppComponent {
     // call backend
     this.chatService.sendMessage(userText).subscribe({
       next: (response) => {
-        this.messages.push({sender: 'ai', text: response.response});
+        const html = marked.parse(response.response);
+        this.messages.push({sender: 'ai', text: html});
         this.isLoading = false;
         this.scrollToBottom();
       },
