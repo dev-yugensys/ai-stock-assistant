@@ -59,4 +59,18 @@ export class AppComponent {
       }, 50);
     } catch {}
   }
+
+  closeSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
+    const body = document.body;
+    
+    if (sidebar) {
+      sidebar.classList.remove('open');
+    }
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
+    body.style.overflow = '';
+  }
 }

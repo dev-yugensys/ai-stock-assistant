@@ -1,18 +1,178 @@
-<h5 class="mb-3">🔥 Trending Stocks</h5>
+<div class="main-content">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <button class="menu-toggle" (click)="toggleSidebar()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    
+    <h1 class="hero-title">Your All-in-One AI<br>Financial Advisor</h1>
+    <p class="hero-subtitle">Get personalized financial guidance: market insights, mutual fund research, govt schemes, and smart investment suggestions — all in one place.</p>
+    
+    <div class="hero-buttons">
+      <button class="btn-primary">Start Your Financial Assessment</button>
+      <button class="btn-secondary">Ask About Stocks / Mutual Funds</button>
+    </div>
+  </div>
 
-<div class="list-group">
-  <a href="#" class="list-group-item">Reliance</a>
-  <a href="#" class="list-group-item">TCS</a>
-  <a href="#" class="list-group-item">HDFC Bank</a>
-  <a href="#" class="list-group-item">Infosys</a>
-  <a href="#" class="list-group-item">ICICI Bank</a>
+  <!-- Features Section -->
+  <div class="features-section">
+    <h2 class="section-title">Your Financial Life, Simplified</h2>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon piggy-bank">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="12" cy="13" rx="8" ry="6" fill="#93C5FD"/>
+            <circle cx="15" cy="12" r="1" fill="#1E40AF"/>
+            <path d="M4 13c0-2 1-3 2-3M20 13c0-2-1-3-2-3" stroke="#1E40AF" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Personal Finance Advisor</h3>
+        <ul class="feature-list">
+          <li>Budgeting, savings planning</li>
+          <li>Debt management</li>
+          <li>Emergency fund</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon chart">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" fill="#BFDBFE"/>
+            <path d="M12 6v6l4 4" stroke="#1E40AF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Investment Advisor</h3>
+        <ul class="feature-list">
+          <li>Mutual funds</li>
+          <li>Asset allocation</li>
+          <li>SIP planning</li>
+          <li>Portfolio insights</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon stock">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="4" width="16" height="16" rx="2" fill="#BFDBFE"/>
+            <path d="M8 12l2 2 4-4" stroke="#1E40AF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Stock Market Insights</h3>
+        <ul class="feature-list">
+          <li>Stock analysis, news</li>
+          <li>trends, support/</li>
+          <li>resistance - fundam.</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon govt">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="10" width="18" height="10" fill="#BFDBFE"/>
+            <path d="M3 10l9-6 9 6" stroke="#1E40AF" stroke-width="2"/>
+            <rect x="8" y="14" width="2" height="6" fill="#1E40AF"/>
+            <rect x="14" y="14" width="2" height="6" fill="#1E40AF"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Government Schemes</h3>
+        <ul class="feature-list">
+          <li>PMJJBY · PPF,</li>
+          <li>Sukanya samriddhi</li>
+          <li>NPS · ELSS · PMAY</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon tax">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <rect x="6" y="4" width="12" height="16" rx="1" fill="#BFDBFE"/>
+            <path d="M10 8h4M10 12h4" stroke="#1E40AF" stroke-width="2"/>
+            <circle cx="16" cy="8" r="3" fill="#FCA5A5"/>
+            <path d="M14 8l4 4" stroke="#DC2626" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Tax & Planning Tools</h3>
+        <ul class="feature-list">
+          <li>80C, 90D</li>
+          <li>Capital gains basics</li>
+          <li>Tax-saving options</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon news">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="6" width="16" height="12" rx="1" fill="#BFDBFE"/>
+            <rect x="7" y="9" width="10" height="2" fill="#1E40AF"/>
+            <rect x="7" y="13" width="6" height="1" fill="#1E40AF"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Market News & Sentiment</h3>
+        <ul class="feature-list">
+          <li>Live news · market</li>
+          <li>mood · sector perfor.</li>
+          <li>FII/DII flow.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ask Me Anything Section -->
+  <div class="ask-section">
+    <h2 class="section-title">Ask Me Anything About Finance</h2>
+    
+    <div class="ask-grid">
+      <div class="ask-column">
+        <div class="ask-category">
+          <span class="category-title">Personal Finance</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+        
+        <div class="ask-items">
+          <button class="ask-item">Create a monthly budget for me</button>
+          <button class="ask-item">Best hybrid funds for stability?</button>
+          <button class="ask-item">Analyze Reliance</button>
+          <button class="ask-item">Which govt schemes should I use for tax saving?</button>
+        </div>
+      </div>
+
+      <div class="ask-column">
+        <div class="quick-actions">
+          <button class="quick-action">Create a a monthly budget for me</button>
+          <button class="quick-action">Which govt schemes should I use for tax saving?</button>
+          <button class="quick-action">G-ve latest stock market news</button>
+        </div>
+      </div>
+
+      <div class="ask-column">
+        <div class="quick-links">
+          <div class="link-header">
+            <span>Analyze Reliance</span>
+            <span class="link-arrow">+ P</span>
+          </div>
+          
+          <div class="link-header">Popular Mutual Funds</div>
+          <div class="link-tags">
+            <span class="tag">FLM</span>
+            <span class="tag">ELSS</span>
+            <span class="tag">NPS</span>
+            <span class="tag">PMAY</span>
+            <span class="tag">ELSS</span>
+            <span class="tag">APY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ask-input">
+      <input type="text" placeholder="Ask me anything about finance...">
+    </div>
+  </div>
 </div>
-
-<hr>
-
-<h5 class="mt-3 mb-2">📰 Latest News</h5>
-<ul>
-  <li>Market hits record high</li>
-  <li>RBI keeps rates unchanged</li>
-  <li>IT sector shows strong Q4 results</li>
-</ul>
