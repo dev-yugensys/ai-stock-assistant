@@ -172,7 +172,7 @@
     </div>
 
     <!-- Q&A Chat Interface -->
-    <div class="qa-container" *ngIf="messages.length > 0">
+    <div class="qa-container" *ngIf="messages.length > 0" #messagesContainer>
       <div class="messages-list">
         <div *ngFor="let message of messages" 
              [class]="'message ' + message.type">

@@ -15,6 +15,7 @@ interface Message {
 export class RightpanelComponent {
   isSidebarOpen = false;
   @ViewChild('askInput') askInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('messagesContainer') messagesContainer!: ElementRef<HTMLDivElement>;
   
   messages: Message[] = [];
   isLoading = false;
@@ -65,6 +66,7 @@ export class RightpanelComponent {
       timestamp: new Date()
     });
 
+    this.scrollToBottom();
     this.isLoading = true;
     this.userQuestion = '';
 
@@ -77,6 +79,7 @@ export class RightpanelComponent {
           timestamp: new Date()
         });
         this.isLoading = false;
+        this.scrollToBottom();
       },
       error: (error) => {
         this.messages.push({
@@ -85,9 +88,22 @@ export class RightpanelComponent {
           timestamp: new Date()
         });
         this.isLoading = false;
+        this.scrollToBottom();
         console.error('Error:', error);
       }
     });
+  }
+
+  private scrollToBottom() {
+    setTimeout(() => {
+      // Scroll the page to show the input field
+      if (this.askInput) {
+        this.askInput.nativeElement.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'end' 
+        });
+      }
+    }, 100);
   }
 
   handleKeyPress(event: KeyboardEvent) {
