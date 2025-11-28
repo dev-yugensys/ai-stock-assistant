@@ -42,12 +42,15 @@ export class RightpanelComponent {
   }
 
   scrollToInput() {
-    const el = this.askInput.nativeElement;
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
     setTimeout(() => {
-      el.focus();
-    }, 500);
+      if (this.askInput) {
+        const el = this.askInput.nativeElement;
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => {
+          el.focus();
+        }, 500);
+      }
+    }, 100);
   }
 
   askQuestion(question?: string) {
