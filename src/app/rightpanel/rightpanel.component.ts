@@ -15,7 +15,6 @@ interface Message {
 export class RightpanelComponent {
   isSidebarOpen = false;
   @ViewChild('askInput') askInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('messagesContainer') messagesContainer!: ElementRef<HTMLDivElement>;
   
   messages: Message[] = [];
   isLoading = false;

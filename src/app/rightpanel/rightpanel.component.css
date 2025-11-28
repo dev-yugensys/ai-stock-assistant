@@ -131,23 +131,6 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-}
-
-.feature-icon.piggy-bank,
-.feature-icon.chart,
-.feature-icon.stock {
-  background: #eff6ff;
-}
-
-.feature-icon.govt {
-  background: #eff6ff;
-}
-
-.feature-icon.tax {
-  background: #eff6ff;
-}
-
-.feature-icon.news {
   background: #eff6ff;
 }
 
