@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 
 @Component({
@@ -8,13 +8,14 @@ import { ChatService } from '../services/chat.service';
 })
 export class RightpanelComponent {
   isSidebarOpen = false;
+  @ViewChild('askInput') askInput!: ElementRef<HTMLInputElement>;
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
     const sidebar = document.querySelector('.sidebar');
     const overlay = document.querySelector('.sidebar-overlay');
     const body = document.body;
-    
+
     if (sidebar) {
       sidebar.classList.toggle('open');
     }
@@ -27,4 +28,14 @@ export class RightpanelComponent {
       body.style.overflow = '';
     }
   }
+
+  scrollToInput() {
+    const el = this.askInput.nativeElement;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    setTimeout(() => {
+      el.focus();
+    }, 500);  // wait until scroll finishes
+  }
+
 }

@@ -8,20 +8,20 @@
         <line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
     </button>
-    
+
     <h1 class="hero-title">Your All-in-One AI<br>Financial Advisor</h1>
     <p class="hero-subtitle">Get personalized financial guidance: market insights, mutual fund research, govt schemes, and smart investment suggestions — all in one place.</p>
-    
+
     <div class="hero-buttons">
-      <button class="btn-primary">Start Your Financial Assessment</button>
-      <button class="btn-secondary">Ask About Stocks / Mutual Funds</button>
+      <button class="btn-primary" (click)="scrollToInput()">Start Your Financial Assessment</button>
+      <button class="btn-secondary" (click)="scrollToInput()">Ask About Stocks / Mutual Funds</button>
     </div>
   </div>
 
   <!-- Features Section -->
   <div class="features-section">
     <h2 class="section-title">Your Financial Life, Simplified</h2>
-    
+
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon piggy-bank">
@@ -125,7 +125,7 @@
   <!-- Ask Me Anything Section -->
   <div class="ask-section">
     <h2 class="section-title">Ask Me Anything About Finance</h2>
-    
+
     <div class="ask-grid">
       <div class="ask-column">
         <div class="ask-category">
@@ -134,7 +134,7 @@
             <polyline points="9 18 15 12 9 6"/>
           </svg>
         </div>
-        
+
         <div class="ask-items">
           <button class="ask-item">Create a monthly budget for me</button>
           <button class="ask-item">Best hybrid funds for stability?</button>
@@ -157,7 +157,7 @@
             <span>Analyze Reliance</span>
             <span class="link-arrow">+ P</span>
           </div>
-          
+
           <div class="link-header">Popular Mutual Funds</div>
           <div class="link-tags">
             <span class="tag">FLM</span>
@@ -172,7 +172,7 @@
     </div>
 
     <div class="ask-input">
-      <input type="text" placeholder="Ask me anything about finance...">
+      <input #askInput type="text" placeholder="Ask me anything about finance...">
     </div>
   </div>
 </div>
