@@ -1,6 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 
+interface Message {
+  type: 'question' | 'answer';
+  content: string;
+  timestamp: Date;
+}
+
 @Component({
   selector: 'app-rightpanel',
   templateUrl: './rightpanel.component.html',
@@ -9,6 +15,12 @@ import { ChatService } from '../services/chat.service';
 export class RightpanelComponent {
   isSidebarOpen = false;
   @ViewChild('askInput') askInput!: ElementRef<HTMLInputElement>;
+  
+  messages: Message[] = [];
+  isLoading = false;
+  userQuestion = '';
+
+  constructor(private chatService: ChatService) {}
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
@@ -35,7 +47,50 @@ export class RightpanelComponent {
 
     setTimeout(() => {
       el.focus();
-    }, 500);  // wait until scroll finishes
+    }, 500);
   }
 
+  askQuestion(question?: string) {
+    const questionText = question || this.userQuestion.trim();
+    
+    if (!questionText) return;
+
+    // Add user question to messages
+    this.messages.push({
+      type: 'question',
+      content: questionText,
+      timestamp: new Date()
+    });
+
+    this.isLoading = true;
+    this.userQuestion = '';
+
+    // Call API
+    this.chatService.sendMessage(questionText).subscribe({
+      next: (response) => {
+        this.messages.push({
+          type: 'answer',
+          content: response.answer || response.response || 'No answer received',
+          timestamp: new Date()
+        });
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.messages.push({
+          type: 'answer',
+          content: 'Sorry, I encountered an error. Please try again.',
+          timestamp: new Date()
+        });
+        this.isLoading = false;
+        console.error('Error:', error);
+      }
+    });
+  }
+
+  handleKeyPress(event: KeyboardEvent) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      this.askQuestion();
+    }
+  }
 }

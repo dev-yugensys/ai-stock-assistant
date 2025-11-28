@@ -136,18 +136,18 @@
         </div>
 
         <div class="ask-items">
-          <button class="ask-item">Create a monthly budget for me</button>
-          <button class="ask-item">Best hybrid funds for stability?</button>
-          <button class="ask-item">Analyze Reliance</button>
-          <button class="ask-item">Which govt schemes should I use for tax saving?</button>
+          <button class="ask-item" (click)="askQuestion('Create a monthly budget for me')">Create a monthly budget for me</button>
+          <button class="ask-item" (click)="askQuestion('Best hybrid funds for stability?')">Best hybrid funds for stability?</button>
+          <button class="ask-item" (click)="askQuestion('Analyze Reliance')">Analyze Reliance</button>
+          <button class="ask-item" (click)="askQuestion('Which govt schemes should I use for tax saving?')">Which govt schemes should I use for tax saving?</button>
         </div>
       </div>
 
       <div class="ask-column">
         <div class="quick-actions">
-          <button class="quick-action">Create a a monthly budget for me</button>
-          <button class="quick-action">Which govt schemes should I use for tax saving?</button>
-          <button class="quick-action">G-ve latest stock market news</button>
+          <button class="quick-action" (click)="askQuestion('Create a monthly budget for me')">Create a a monthly budget for me</button>
+          <button class="quick-action" (click)="askQuestion('Which govt schemes should I use for tax saving?')">Which govt schemes should I use for tax saving?</button>
+          <button class="quick-action" (click)="askQuestion('Give me latest stock market news')">Give me latest stock market news</button>
         </div>
       </div>
 
@@ -171,8 +171,52 @@
       </div>
     </div>
 
+    <!-- Q&A Chat Interface -->
+    <div class="qa-container" *ngIf="messages.length > 0">
+      <div class="messages-list">
+        <div *ngFor="let message of messages" 
+             [class]="'message ' + message.type">
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-label">{{ message.type === 'question' ? 'You' : 'AI Advisor' }}</span>
+              <span class="message-time">{{ message.timestamp | date:'short' }}</span>
+            </div>
+            <div class="message-text">{{ message.content }}</div>
+          </div>
+        </div>
+        
+        <div *ngIf="isLoading" class="message answer loading">
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-label">AI Advisor</span>
+            </div>
+            <div class="message-text">
+              <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="ask-input">
-      <input #askInput type="text" placeholder="Ask me anything about finance...">
+      <input #askInput 
+             type="text" 
+             [(ngModel)]="userQuestion"
+             (keypress)="handleKeyPress($event)"
+             placeholder="Ask me anything about finance..."
+             [disabled]="isLoading">
+      <button class="send-btn" 
+              (click)="askQuestion()"
+              [disabled]="!userQuestion.trim() || isLoading">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
     </div>
   </div>
 </div>
