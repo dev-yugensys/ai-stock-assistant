@@ -352,14 +352,18 @@
 }
 
 .message-text strong {
+  font-weight: 700;
+}
+
+.message-text strong.section-header {
   display: block;
   font-size: 15px;
   font-weight: 700;
-  margin-top: 12px;
+  margin-top: 16px;
   margin-bottom: 8px;
 }
 
-.message-text strong:first-child {
+.message-text strong.section-header:first-child {
   margin-top: 0;
 }
 
