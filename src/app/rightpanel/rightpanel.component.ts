@@ -111,4 +111,23 @@ export class RightpanelComponent {
       this.askQuestion();
     }
   }
+
+  formatMessage(content: string): string {
+    if (!content) return '';
+    
+    // Replace markdown headers with bold HTML
+    let formatted = content.replace(/^# (.+)$/gm, '<strong>$1</strong>');
+    
+    // Remove excessive line breaks (more than 2 consecutive \n)
+    formatted = formatted.replace(/\n{3,}/g, '\n\n');
+    
+    // Convert line breaks to <br> tags
+    formatted = formatted.replace(/\n/g, '<br>');
+    
+    // Add bullets for list items (lines that start with a dash or asterisk)
+    formatted = formatted.replace(/^- (.+)$/gm, '• $1');
+    formatted = formatted.replace(/^\* (.+)$/gm, '• $1');
+    
+    return formatted;
+  }
 }
